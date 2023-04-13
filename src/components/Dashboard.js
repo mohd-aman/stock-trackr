@@ -1,5 +1,7 @@
 import React from "react";
+import { mockCompanyDetails } from "../constants/mock";
 import Card from "./Card";
+import Header from "./Header";
 
 const Dashboard = () =>{
     return(
@@ -9,7 +11,7 @@ const Dashboard = () =>{
          gap-6 p-10 font-quicksand " >
             <div className="col-span-1 md:col-span-2
              xl:col-span-3 row-span-1">
-                 <Card>Header</Card>
+                <Header name={mockCompanyDetails.name}/>
             </div>
             <div className="md:col-span-2 row-span-4">
                  <Card>Chart</Card>
