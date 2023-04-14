@@ -8,9 +8,9 @@ function App() {
   const [darkMode,setDarkMode] = useState(false)
 
   return (
-    <ThemeContext value={{darkMode,setDarkMode}}>
+    <ThemeContext.Provider value={{darkMode,setDarkMode}}>
       <Dashboard/>
-    </ThemeContext>
+    </ThemeContext.Provider>
     
   );
 }

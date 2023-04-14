@@ -1,16 +1,25 @@
+import React,{ useContext } from "react"
+import ThemeContext from "../context/ThemeContext"
 
 
 const SearchResults = ({results})=>{
-    return <ul className="absolute top-12 border-2
+    const {darkMode,setDarkMode} = useContext(ThemeContext);
+    
+    return <ul className={`absolute top-12 border-2
                         w-full roudner-md h-64
                         overflow-y-scroll bg-white
-                      border-neutral-200 custom-scrollbar ">
+                      border-neutral-200 custom-scrollbar
+                        ${darkMode?"bg-gray-900 border-gray-800 custom-scrollbar custom-scrollbar-dark":
+                        "bg-white border-neutral-200 custom-scrollbar"
+                    }
+                      `}>
             {results.map((item)=>{
                return <li key={item.symbol} 
-                        className="cursor-pointer 
+                        className={`cursor-pointer 
                          p-4 m-2 flex items-center
                         justify-between rounded-md
-                        hover:bg-indigo-200">
+                        ${darkMode?"hover:bg-indigo-600":"hover:bg-indigo-200"}
+                        `}>
                         <span>{item.symbol}</span>
                         <span>{item.description}</span>
                 </li>
