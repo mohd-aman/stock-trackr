@@ -1,15 +1,16 @@
 import { useContext } from "react"
+import StockContext from "../context/StockContext"
 import ThemeContext from "../context/ThemeContext"
 import Card from "./Card"
 
 
 const Details = ({details}) => {
-
+    console.log(details)
     const {darkMode,setDarkMode} = useContext(ThemeContext)
-
+    const {stockSymbol} = useContext(StockContext)
     const detailsList = {
         name:"Name",
-        countary:"India",
+        country:"India",
         currency:"Currency",
         exchange:"Exchange",
         ipo:"IPO Date",
@@ -29,7 +30,7 @@ const Details = ({details}) => {
                 {Object.keys(detailsList).map((item)=>{
                     return(
                         <li key={item} className="flex-1 flex justify-between items-center">
-                            <span>{detailsList[item]}</span>
+                            <span>{item}</span>
                             <span>
                                 {item == "marketCapitalization"? 
                                 `${convertMillionToBillion(details[item])}B`

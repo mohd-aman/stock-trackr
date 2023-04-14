@@ -1,10 +1,12 @@
 import React,{ useContext } from "react"
+import StockContext from "../context/StockContext";
 import ThemeContext from "../context/ThemeContext"
 
 
 const SearchResults = ({results})=>{
     const {darkMode,setDarkMode} = useContext(ThemeContext);
-    
+    const {setStockSymbol} = useContext(StockContext)
+
     return <ul className={`absolute top-12 border-2
                         w-full roudner-md h-64
                         overflow-y-scroll bg-white
@@ -19,7 +21,11 @@ const SearchResults = ({results})=>{
                          p-4 m-2 flex items-center
                         justify-between rounded-md
                         ${darkMode?"hover:bg-indigo-600":"hover:bg-indigo-200"}
-                        `}>
+                        `}
+                        onClick={()=>{
+                            setStockSymbol(item.symbol)
+                        }}
+                        >
                         <span>{item.symbol}</span>
                         <span>{item.description}</span>
                 </li>
