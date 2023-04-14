@@ -1,7 +1,9 @@
 import React from "react";
 import { mockCompanyDetails } from "../constants/mock";
 import Card from "./Card";
+import Details from "./Details";
 import Header from "./Header";
+import Overview from "./Overview";
 
 const Dashboard = () =>{
     return(
@@ -17,10 +19,15 @@ const Dashboard = () =>{
                  <Card>Chart</Card>
             </div>
             <div>
-                 <Card>Overview</Card>
+                 <Overview symbol={mockCompanyDetails.ticker}
+                            price={100}
+                            change= {10.0}
+                            changePercent={10.0}
+                            currency="USD"
+                 ></Overview>
             </div>
             <div className="row-span-2 xl:row-span-3">
-                 <Card>Details</Card>
+                 <Details details={mockCompanyDetails}></Details>
             </div>
         </div>
     )
