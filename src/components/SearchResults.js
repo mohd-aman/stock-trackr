@@ -21,7 +21,7 @@ const SearchResults = ({results})=>{
                          p-4 m-2 flex items-center
                         justify-between rounded-md
                         ${darkMode?"hover:bg-indigo-600":"hover:bg-indigo-200"}
-                        `}
+                        transitino duration-300`}
                         onClick={()=>{
                             setStockSymbol(item.symbol)
                         }}

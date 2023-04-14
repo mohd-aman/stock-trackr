@@ -52,7 +52,7 @@ const Search = () =>{
 
             <button onClick={updateBestMatches}
              className="h-8 w-8 bg-indigo-600 flex
-              justify-center items-center m-1 p-2 rounded-md">
+              justify-center items-center m-1 p-2 rounded-md transition duration-300 hover:ring-2 ring-indigo-400">
                   <SearchIcon className="h-6 w-6 fill-gray-100 "></SearchIcon>
             </button>
 
