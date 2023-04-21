@@ -8,7 +8,7 @@ const Card = ({children}) =>{
                         relative p-8 border-2
                          bg-white 
                          border-neutral-200
-                         ${darkMode?"bg-gray-900 border-gray-500":"bg-white border-neutral-200"}
+                         ${darkMode?"bg-gray-800 border-gray-500":"bg-white border-neutral-200"}
                          `}>
             {children}
         </div>

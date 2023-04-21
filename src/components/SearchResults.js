@@ -1,17 +1,21 @@
-import React,{ useContext } from "react"
+import React,{ useContext, useState } from "react"
 import StockContext from "../context/StockContext";
 import ThemeContext from "../context/ThemeContext"
 
 
-const SearchResults = ({results})=>{
+const SearchResults = ({results,isClicked,setIsClicked})=>{
     const {darkMode,setDarkMode} = useContext(ThemeContext);
     const {setStockSymbol} = useContext(StockContext)
+    
+    if(isClicked == "true"){
+      return null
+    }
 
-    return <ul className={`absolute top-12 border-2
+    return (<ul className={`absolute top-12 border-2
                         w-full roudner-md h-64
                         overflow-y-scroll bg-white
                       border-neutral-200 custom-scrollbar
-                        ${darkMode?"bg-gray-900 border-gray-800 custom-scrollbar custom-scrollbar-dark":
+                        ${darkMode?"bg-gray-800 border-gray-800 custom-scrollbar custom-scrollbar-dark":
                         "bg-white border-neutral-200 custom-scrollbar"
                     }
                       `}>
@@ -23,7 +27,9 @@ const SearchResults = ({results})=>{
                         ${darkMode?"hover:bg-indigo-600":"hover:bg-indigo-200"}
                         transitino duration-300`}
                         onClick={()=>{
-                            setStockSymbol(item.symbol)
+                            
+                            setStockSymbol(item.symbol);
+                            setIsClicked("true");
                         }}
                         >
                         <span>{item.symbol}</span>
@@ -31,6 +37,6 @@ const SearchResults = ({results})=>{
                 </li>
             })}
     </ul>
-}
+)}
 
 export default SearchResults

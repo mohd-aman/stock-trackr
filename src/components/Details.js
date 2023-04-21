@@ -5,7 +5,6 @@ import Card from "./Card"
 
 
 const Details = ({details}) => {
-    console.log(details)
     const {darkMode,setDarkMode} = useContext(ThemeContext)
     const {stockSymbol} = useContext(StockContext)
     const detailsList = {

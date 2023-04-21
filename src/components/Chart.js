@@ -12,7 +12,7 @@ import { fetchHistoricalData } from "../api/stock.api";
 
 const Chart = ()=>{
     const [data,setData] = useState([]);
-    const [filter,setFilter] = useState("1W");
+    const [filter,setFilter] = useState("1D");
     const { darkMode,setDarkMode} = useContext(ThemeContext)
     const {stockSymbol} = useContext(StockContext);
     
